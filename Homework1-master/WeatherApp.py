@@ -4,7 +4,7 @@
 #Assignment:
 
 import WeatherInfo
-#change
+
 #Set your key
 WeatherInfo.setKey("<INSERT YOUR KEY HERE>")
 
