@@ -4,14 +4,17 @@
 #Assignment:
 
 import WeatherInfo
+from WeatherInfo import setCity
 
 #Set your key
-WeatherInfo.setKey("<INSERT YOUR KEY HERE>")
+WeatherInfo.setKey("d877ca2ccc179e10caa55e272b5caa8b")
 
 #Ask the user for their city
-
+city = input("What city: ")
+setCity(city)
 #Update the weather with the given city
-
+WeatherInfo.updateWeather()
+print(str(round(((WeatherInfo.getTemp()-273)*9/5)+32))+" degrees F")
 #Request any data you need from the WeatherInfo API
 
 #Process the data
