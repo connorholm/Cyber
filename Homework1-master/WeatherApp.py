@@ -1,17 +1,17 @@
 #WeatherApp.py
-#Name:
-#Date:
+#Name: Connor Holm
+#Date: 
 #Assignment:
 
 import WeatherInfo
-from WeatherInfo import setCity
+
 
 #Set your key
 WeatherInfo.setKey("d877ca2ccc179e10caa55e272b5caa8b")
 
 #Ask the user for their city
 city = input("What city: ")
-setCity(city)
+WeatherInfo.setCity("Eden Prairie")
 #Update the weather with the given city
 WeatherInfo.updateWeather()
 print(str(round(((WeatherInfo.getTemp()-273)*9/5)+32))+" degrees F")
