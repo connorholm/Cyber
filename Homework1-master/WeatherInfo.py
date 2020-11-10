@@ -1,4 +1,4 @@
-import urllib.request, json
+import json, requests
 
 user_key = ""
 user_city = "Omaha"
@@ -22,9 +22,9 @@ def updateWeather():
     global description, feels_like, kelvin_temp, humidity, pressure, wind_speed
     weatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + user_city + "&APPID=" + user_key
     try:
-        with urllib.request.urlopen(weatherURL) as url:
-            data = json.loads(url.read().decode())
-            #print(data)
+            url = requests.get(weatherURL)
+            data = url.json()
+            print(data)
             description = data['weather'][0]['description']
 
             kelvin_temp = data['main']['temp']
