@@ -16,13 +16,15 @@ def main():
 
     #TODO:
     #Ask user for hours
+    hour = int(input("At what hour: "))
     #Ask user for minutes
-
+    minute = int(input("At what minute: "))
     #Calculate the time after the user-supplied time has passed.
-
+    finalHour = hour - currentHour
+    finalMinute = (60 - currentMinute - minute) % 60
     #Do not use any if statements in calculating the time.
 
     #Output the future time in standard format "HH:MM"
-
+    print(str(finalHour)+":"+str(finalMinute))
 
 main()
