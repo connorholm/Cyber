@@ -25,6 +25,7 @@ def main():
     print(nouns)
 
     #Print the story with the user supplied words.
+    sleep(2)
     print()
     print()
     print()
