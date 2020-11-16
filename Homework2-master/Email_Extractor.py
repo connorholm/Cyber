@@ -3,21 +3,53 @@
 #Date:
 #Assignment:
 
-import urllib.request
+import requests
 from bs4 import BeautifulSoup
+
+def filterNoneType(lis):
+    lis2 = []
+    for l in lis: #filter out NoneType
+        if type(l) == str:
+            lis2.append(l)
+    return lis2
 
 def main():
   #prompt the user for a webpage url
-  url = 'https://www.unomaha.edu/college-of-information-science-and-technology/about/faculty-staff/index.php'
-  url_html = urllib.request.urlopen(url)
+  url = input("Enter a URL to get emails off of: ")
+  #url = 'https://www.unomaha.edu/college-of-information-science-and-technology/about/faculty-staff/index.php'
+  url_html = requests.get(url)
 
-  soup = BeautifulSoup(url_html, "html.parser")
-
+  soup = BeautifulSoup(url_html.text, "html.parser")
+  info = soup.find_all(class_="col-sm-10")
+  
   #Convert the soup to a string version
-  soup = str(soup)
-
+  liInfos = []
+  links = []
+  newLinks = []
+  for li in info:
+    liInfo = li.find_all("li")
+    liInfos.append(liInfo)
+  for link in soup.find_all("a"):
+    links.append(link.get("href"))
+  links = filterNoneType(links)
+  #Not_none_values = filter(None.__ne__, links)
+  #links = list(Not_none_values)
+  for link in links:
+    if link[0:4] == "http" or link[0:3] == "../" or link[0:1] == "#" or link[0:4] == "tel:":
+      continue
+    for letter in link:
+      if letter == "@":
+        if link[0:4] == "mail":
+          newLinks.append(link[8:])
+          continue
+        newLinks.append(link)
+  if newLinks == []:
+    print("No emails found :(")
+  else:
+    print(newLinks)
+   
   #Split the text into a list, with the end of line \n as the delimiter
-  for line in soup.split("\n"):
-    print(line)
+  #print(liInfos)
+  #print(links)
 
 main()
