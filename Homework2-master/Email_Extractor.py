@@ -13,6 +13,13 @@ def filterNoneType(lis):
             lis2.append(l)
     return lis2
 
+def checkIfDuplicates(listOfElems, ele):
+    ''' Check if given list contains any duplicates '''
+    for elements in listOfElems:
+      if elements == ele:
+        return False
+    return True
+
 def main():
   #prompt the user for a webpage url
   url = input("Enter a URL to get emails off of: ")
@@ -38,11 +45,12 @@ def main():
     if link[0:4] == "http" or link[0:3] == "../" or link[0:1] == "#" or link[0:4] == "tel:":
       continue
     for letter in link:
-      if letter == "@":
+      if letter == "@" and link[1] != "@" and link[-1] !=  "@":
         if link[0:4] == "mail":
           newLinks.append(link[8:])
           continue
-        newLinks.append(link)
+        if checkIfDuplicates(links, link) == False:
+          newLinks.append(link)
   if newLinks == []:
     print("No emails found :(")
   else:
