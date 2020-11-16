@@ -13,10 +13,21 @@ def translate(startLetters, endLetters, spot):
 
 
 def rotate(alphabet):
+    letters = []
     #move the first letter of the alphabet to the end
     #shift all the letters
-
-    return alphabet #this has been rotated
+    index = 0
+    newAlphabet = ""
+    for letter in alphabet:
+        if index > 0 and index < 25:
+            letters.append(letter)
+        if index == 25:
+            letters.append(letter)
+        index =+ 1
+    letters.append(alphabet[:1])
+    for letter in letters:
+        newAlphabet = newAlphabet+letter
+    return newAlphabet #this has been rotated
 
 
 def main():
@@ -27,7 +38,6 @@ def main():
     reflectorA = "EJMZALYXVBWFCRQUONTSPIKHGD"
 
     # get a message from the user
-
 
     message = "HELLO"
     letter = message[0]
