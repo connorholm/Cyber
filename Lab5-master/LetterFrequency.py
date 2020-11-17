@@ -48,5 +48,5 @@ def writeToFile(fileText):
 
 def main():
     msg = input("Enter a message: ")
-
+    countLetters(msg)
 main()
