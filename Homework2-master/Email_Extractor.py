@@ -1,5 +1,5 @@
 #Email_Extractor.py
-#Name:
+#Name: Connor Holm
 #Date:
 #Assignment:
 
