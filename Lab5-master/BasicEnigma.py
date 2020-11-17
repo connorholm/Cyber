@@ -8,8 +8,13 @@
 def translate(startLetters, endLetters, spot):
     #find the letter at (spot) in the startLetters string.
     #find the location of the letter in the endLetters string.
+    index = 0
+    for letter in endLetters:
+        if letter == startLetters[spot]:
+            return index
+        index =+ 1
+    return -1
 
-    return spot
 
 
 def rotate(alphabet):
@@ -47,8 +52,9 @@ def main():
 
     #pass this letter through rotor1
     pos = translate(alpha, rotor1, pos) #starting, ending, current position
-
-
+    
+    print(translate(alpha, rotor1, pos))
+    
     #Reflector
     pos = translate(alpha, reflectorA, pos)
 
