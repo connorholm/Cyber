@@ -38,8 +38,8 @@ def rotate(alphabet):
 def main():
     alpha =  "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     rotor1 = "EKMFLGDQVZNTOWYHXUSPAIBRCJ"
-    rotor2 = "AJDKSIRUXBLHWTMCQGZNPYFVOE"
-    rotor3 = "BDFHJLCPRTXVZNYEIWGAKMUSQO"
+    #rotor2 = "AJDKSIRUXBLHWTMCQGZNPYFVOE"
+    #rotor3 = "BDFHJLCPRTXVZNYEIWGAKMUSQO"
     reflectorA = "EJMZALYXVBWFCRQUONTSPIKHGD"
 
     # get a message from the user
