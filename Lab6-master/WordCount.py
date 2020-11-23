@@ -4,10 +4,15 @@
 #Assignment:
 
 def main():
-    textFile = open("gettysberg.txt", 'r')
-
+    textFile = open("/Users/90305163/Developer/Cyber/Lab6-master/gettysberg.txt", 'r')
+    words = []
+    numWords = 0
     for line in textFile:
-        print(line)
+        words.append(line.split())
+    for line in words:
+        for word in line:
+            numWords = numWords + 1
+    print(numWords)
 
 
 main()
