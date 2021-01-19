@@ -17,7 +17,7 @@ WeatherInfo.setCity(city)
 
 WeatherInfo.updateWeather()
 print(str(WeatherInfo.getTemp())+" degrees K")
-#print(str(round(((WeatherInfo.getTemp()-273)*9/5)+32))+" degrees F")
+print(str(round(((WeatherInfo.getTemp()-273)*9/5)+32))+" degrees F")
 
 #Request any data you need from the WeatherInfo API
 
